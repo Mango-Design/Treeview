@@ -11,11 +11,15 @@ Simply:
 
 *******
 > Choose you preferred treeview configuration based on which interface element you wish to get. 
+
 > Describe the objects that will represent the items that the user could select, and pull it into the plugin
+
 > And you're Done!
 
-The Treeview will handle the presentation of the choice screen, and all the selection process.
 *******
+
+The Treeview will handle the presentation of the choice screen, and all the selection process.
+
 
 And if you wish to get more involved:
 
