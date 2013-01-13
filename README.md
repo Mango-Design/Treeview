@@ -27,6 +27,11 @@ Every element is fully customizable in design, and the core code and functionali
 
 More functionaly will come soon!
 
+*****
+Complete Project SRC can be downloaded Here:
 
+> https://docs.google.com/folder/d/0B4z9HkZREGpeN3RjSW9FUUJZa0E/edit 
+
+*****
 ISDesign.tv
 Ivan Sollima.
