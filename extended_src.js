@@ -1,4 +1,10 @@
-//Treeview Module 2.0 - Ivan Sollima ISDesign.tv
+/** PRESERVE **
+    Treeview Module 2.0 - Ivan Sollima ISDesign.tv
+    Author: Ivan Sollima.
+    License: GNU GENERAL PUBLIC LICENSE,
+    version: 2.0,
+
+ */
 
 //INIT ALL THE ENVIRONMENT VARS NEEDED TO CREATE A TREEVIEW
 example_treeview_vars_init();
@@ -10,12 +16,12 @@ var treeview = {
     filters:filterVect,
     title:"<span class='lBlue'>Treeview 2.0</span>",
     classes:"shadow round5-left",
-    sidebarTitle:"<span class='red'>Titolo numero 2</span>",
+    sidebarTitle:"<span class='red'>Selection option (per item)</span>",
     sidebarClass:"",
     selectionMode:"multi",
     extend_modules:function(){
         return[
-            manual_interactionW(treeview),
+            //manual_interactionW(treeview),
             sidebarTitle_changer(treeview),
             //scrollbars_module(treeview),
             selectors_deselectors(treeview)
@@ -29,7 +35,7 @@ var treeview = {
     },
     onCreate:function () {
         $(".treeview")
-           // .draggable({distance:30, scroll:false, handle:".treeview", cancel:".appender, .itemGroups li, .buttons > *"})
+            .draggable({distance:30, scroll:false, handle:".treeview", cancel:".appender, .itemGroups li, .buttons > *"})
             .trigger("change");
     },
     onClose:function(){}
@@ -39,43 +45,58 @@ function example_treeview_vars_init(){
     //************************
 
     var item = {
+        //UNIQUE IDENTIFIER FOR THE ITEM
         id:"id0",
-        classes:"contact",
+        //ADD CSS CLASSES
+        classes:"",
+        //DISPLAYED IMAGE
         img:"dummy-images/1.jpg",
-        title:"EL1",
+        //TITLE
+        title:"Fiat Group",
+        //DESCRIPTION
         description:"Oggetto Offerta",
+        //ARRAY OF OPTIONS ID, EVERY ELEMENT OF THE ARRAY CORRESPOND TO AN OPTION ID YOU'LL CREATE.
         parameters:["00", "01", "02", "03"],
+        //DISABLED BUT VISIBLE OPTION FROM THE OPTION ARRAY
         disabled_parameters:["00", "01"],
+        //DISABLE THE INTERACTION WITH THE ITEM
         disabled_item:false,
+        //ARRAY OF GROUPS ID, EVERY ELEMENT OF THE ARRAY CORRESPOND TO A GROUP YOU'LL CREATE.
         groups:["group0","group1"],
+        //SELECT ITEM
         selected:false,
-        //priority:"all",
-        priority:"group",
+        //SET THE PRIORITY OF THE ITEM:
+        // With priority "all" when this item will be selected, all the other items will be deselected, and
+        // viceversa.
+        // With priority "group" when this item will be selected, all the other items that share the same group
+        // will be deselected, and viceversa.
+
+        priority:"all",
 
         //MODULE EXTRA PARAMS - sidebarTitle_changer
-        sbar_title: "Parametrizzazzione per l'elemento SoftWrap"
+        sbar_title: "Every Item can have it's own sidebar title, and HAVE different options set"
     };
 
     var item1 = {
         id:"id1",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/1.jpg",
-        title:"EL2",
-        description:"Oggetto Blog",
+        title:"Fiat Group",
+        description:"All the fiats",
         parameters:["10", "11", "00", "03"],
         disabled_parameters:["10", "12"],
         disabled_item:false,
         groups:["group1","group2"],
         selected:false,
-        priority:""
+        priority:"group"
     };
 
     var item2 = {
         id:"id2",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/2.jpg",
-        title:"EL3",
-        description:"Oggetto Fornitore",
+        title:"Station Wagon",
+        description:"Good Stability",
         parameters:["12", "13"],
         disabled_parameters:[],
         disabled_item:false,
@@ -86,10 +107,10 @@ function example_treeview_vars_init(){
 
     var item3 = {
         id:"id3",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/3.jpg",
-        title:"EL4",
-        description:"Oggetto Profilo",
+        title:"Punto",
+        description:"Big Spaces",
         parameters:["10", "00"],
         disabled_parameters:[],
         disabled_item:false,
@@ -100,10 +121,10 @@ function example_treeview_vars_init(){
 
     var item4 = {
         id:"id4",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/4.jpg",
-        title:"EL5",
-        description:"Oggetto Collaboratore",
+        title:"A3",
+        description:"Elegant, Simple",
         parameters:["00","01","02","03","10","11","12", "13","14"],
         disabled_parameters:[],
         disabled_item:false,
@@ -114,10 +135,10 @@ function example_treeview_vars_init(){
 
     var item5 = {
         id:"id5",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/5.jpg",
-        title:"EL6",
-        description:"Generico",
+        title:"500",
+        description:"Small Space, Big Parking Space",
         parameters:["03","10","14"],
         disabled_parameters:[],
         disabled_item:false,
@@ -128,10 +149,10 @@ function example_treeview_vars_init(){
 
     var item6 = {
         id:"id6",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/6.jpg",
-        title:"EL7",
-        description:"Oggetto Azienda",
+        title:"600",
+        description:"Small, low consumption",
         parameters:["14"],
         disabled_parameters:[],
         disabled_item:false,
@@ -142,10 +163,10 @@ function example_treeview_vars_init(){
 
     var item7 = {
         id:"id7",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/7.jpg",
-        title:"EL8",
-        description:"Oggetto Bacheca",
+        title:"Ibiza",
+        description:"Warm Party!",
         parameters:["03","10","11","13","14"],
         disabled_parameters:[],
         disabled_item:false,
@@ -156,10 +177,10 @@ function example_treeview_vars_init(){
 
     var item8 = {
         id:"id8",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/8.jpg",
-        title:"EL9",
-        description:"Oggetto Gruppo",
+        title:"Giulietta",
+        description:"Elegant, Romantic",
         parameters:[],
         disabled_parameters:[],
         disabled_item:false,
@@ -170,10 +191,10 @@ function example_treeview_vars_init(){
 
     var item9 = {
         id:"id9",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/9.jpg",
-        title:"EL10",
-        description:"Oggetto User",
+        title:"Romeo",
+        description:"Alfa, Beta, Gamma Y",
         parameters:[],
         disabled_parameters:[],
         disabled_item:false,
@@ -184,10 +205,10 @@ function example_treeview_vars_init(){
 
     var item10 = {
         id:"id10",
-        classes:"contact",
+        classes:"",
         img:"dummy-images/10.jpg",
-        title:"EL11",
-        description:"Oggetto Overflow",
+        title:"Malaga",
+        description:"You know this One?",
         parameters:[],
         disabled_parameters:[],
         disabled_item:false,
@@ -198,45 +219,45 @@ function example_treeview_vars_init(){
 
     var paramlist = {
         id:"paramlist0",
-        title:"Home",
+        title:"Mechanic Options",
         items_id:["00", "01", "02", "03"],
-        items_title:["Collaborazioni 00", "Permesso 01", "Permesso 02", "Permesso 03"]
+        items_title:["Extend-Warranty", "Multi-Color", "Full Fuel", "Modded Engine"]
     };
 
     var paramlist1 = {
         id:"paramlist1",
-        title:"FairUse",
+        title:"Interior Customizations",
         items_id:["10", "11", "12", "13"],
-        items_title:["Administration 10", "Permesso 11", "Permesso 12", "Permesso 13"]
+        items_title:["Leather Seats", "TV on Seats", "+1 Seats", ".."]
     };
 
     var filter = {
         id:"all",
-        title:"Tutti",
+        title:"All Cars",
         contents:"items"
     };
 
     var filter0 = {
         id:"group0",
-        title:"Group 0",
+        title:"Race Cars",
         contents:"items"
     };
 
     var filter1 = {
         id:"group1",
-        title:"Group 1",
+        title:"Hibryd Cars",
         contents:"items"
     };
 
     var filter2 = {
         id:"group2",
-        title:"Group 2",
+        title:"GPL or Diesel",
         contents:"items"
     };
 
     var filter3 = {
         id:"selected",
-        title:"Selezionati",
+        title:"Selected",
         contents:"items"
     };
 
