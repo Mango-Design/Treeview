@@ -32,6 +32,10 @@ Complete Project SRC can be downloaded Here:
 
 > https://docs.google.com/folder/d/0B4z9HkZREGpeN3RjSW9FUUJZa0E/edit 
 
+Working example can be viewed Here (open console to see results):
+
+> http://jsfiddle.net/ISDesign/4xSf3/
+
 *****
 ISDesign.tv
 Ivan Sollima.
