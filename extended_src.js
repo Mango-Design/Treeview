@@ -5,43 +5,9 @@
     version: 2.0,
 
  */
-
+ 
 //INIT ALL THE ENVIRONMENT VARS NEEDED TO CREATE A TREEVIEW
-example_treeview_vars_init();
-//*********************************************************
-
-var treeview = {
-    items:itemVect,
-    params:paramVect,
-    filters:filterVect,
-    title:"<span class='lBlue'>Treeview 2.0</span>",
-    classes:"shadow round5-left",
-    sidebarTitle:"<span class='red'>Selection option (per item)</span>",
-    sidebarClass:"",
-    selectionMode:"multi",
-    extend_modules:function(){
-        return[
-            //manual_interactionW(treeview),
-            sidebarTitle_changer(treeview),
-            //scrollbars_module(treeview),
-            selectors_deselectors(treeview)
-        ];
-    },
-    onConfirm:function () {
-        console.log(filterArray(treeview.items, "selected", true));
-    },
-    onCancel:function () {
-        treeview.close();
-    },
-    onCreate:function () {
-        $(".treeview")
-            .draggable({distance:30, scroll:false, handle:".treeview", cancel:".appender, .itemGroups li, .buttons > *"})
-            .trigger("change");
-    },
-    onClose:function(){}
-};
-
-function example_treeview_vars_init(){
+var data = (function {
     //************************
 
     var item = {
@@ -75,9 +41,8 @@ function example_treeview_vars_init(){
 
         //MODULE EXTRA PARAMS - sidebarTitle_changer
         sbar_title: "Every Item can have it's own sidebar title, and HAVE different options set"
-    };
-
-    var item1 = {
+    },
+    item1 = {
         id:"id1",
         classes:"",
         img:"dummy-images/1.jpg",
@@ -89,9 +54,8 @@ function example_treeview_vars_init(){
         groups:["group1","group2"],
         selected:false,
         priority:"group"
-    };
-
-    var item2 = {
+    },
+    item2 = {
         id:"id2",
         classes:"",
         img:"dummy-images/2.jpg",
@@ -103,9 +67,8 @@ function example_treeview_vars_init(){
         groups:["group2","group3"],
         selected:false,
         priority:""
-    };
-
-    var item3 = {
+    },
+    item3 = {
         id:"id3",
         classes:"",
         img:"dummy-images/3.jpg",
@@ -117,9 +80,8 @@ function example_treeview_vars_init(){
         groups:["group0","group1","group2"],
         selected:false,
         priority:""
-    };
-
-    var item4 = {
+    },
+    item4 = {
         id:"id4",
         classes:"",
         img:"dummy-images/4.jpg",
@@ -131,9 +93,8 @@ function example_treeview_vars_init(){
         groups:[],
         selected:false,
         priority:""
-    };
-
-    var item5 = {
+    },
+    item5 = {
         id:"id5",
         classes:"",
         img:"dummy-images/5.jpg",
@@ -145,9 +106,8 @@ function example_treeview_vars_init(){
         groups:[],
         selected:false,
         priority:""
-    };
-
-    var item6 = {
+    },
+    item6 = {
         id:"id6",
         classes:"",
         img:"dummy-images/6.jpg",
@@ -159,9 +119,8 @@ function example_treeview_vars_init(){
         groups:[],
         selected:false,
         priority:""
-    };
-
-    var item7 = {
+    },
+    item7 = {
         id:"id7",
         classes:"",
         img:"dummy-images/7.jpg",
@@ -173,9 +132,8 @@ function example_treeview_vars_init(){
         groups:[],
         selected:false,
         priority:""
-    };
-
-    var item8 = {
+    },
+    item8 = {
         id:"id8",
         classes:"",
         img:"dummy-images/8.jpg",
@@ -187,9 +145,8 @@ function example_treeview_vars_init(){
         groups:[],
         selected:false,
         priority:""
-    };
-
-    var item9 = {
+    },
+    item9 = {
         id:"id9",
         classes:"",
         img:"dummy-images/9.jpg",
@@ -201,9 +158,8 @@ function example_treeview_vars_init(){
         groups:[],
         selected:false,
         priority:""
-    };
-
-    var item10 = {
+    },
+    item10 = {
         id:"id10",
         classes:"",
         img:"dummy-images/10.jpg",
@@ -215,56 +171,84 @@ function example_treeview_vars_init(){
         groups:[],
         selected:false,
         priority:""
-    };
-
-    var paramlist = {
+    },
+    paramlist = {
         id:"paramlist0",
         title:"Mechanic Options",
         items_id:["00", "01", "02", "03"],
         items_title:["Extend-Warranty", "Multi-Color", "Full Fuel", "Modded Engine"]
-    };
-
-    var paramlist1 = {
+    },
+    paramlist1 = {
         id:"paramlist1",
         title:"Interior Customizations",
         items_id:["10", "11", "12", "13"],
         items_title:["Leather Seats", "TV on Seats", "+1 Seats", ".."]
-    };
-
-    var filter = {
+    },
+    filter = {
         id:"all",
         title:"All Cars",
         contents:"items"
-    };
-
-    var filter0 = {
+    },
+    filter0 = {
         id:"group0",
         title:"Race Cars",
         contents:"items"
-    };
-
-    var filter1 = {
+    },
+    filter1 = {
         id:"group1",
         title:"Hibryd Cars",
         contents:"items"
-    };
-
-    var filter2 = {
+    },
+    filter2 = {
         id:"group2",
         title:"GPL or Diesel",
         contents:"items"
-    };
-
-    var filter3 = {
+    },
+    filter3 = {
         id:"selected",
         title:"Selected",
         contents:"items"
     };
 
-    itemVect = [item,item1,item2,item3,item4,item5,item6,item7,item8,item9,item10];
-    paramVect = [paramlist,paramlist1];
-    filterVect = [filter,filter0,filter1,filter2,filter3];
-}
+    return {
+        itemVect : [item,item1,item2,item3,item4,item5,item6,item7,item8,item9,item10],
+        paramVect : [paramlist,paramlist1],
+        filterVect : [filter,filter0,filter1,filter2,filter3]
+    }
+})
+
+
+var treeview = {
+    items:data.itemVect,
+    params:data.paramVect,
+    filters:data.filterVect,
+    title:"<span class='lBlue'>Treeview 2.0</span>",
+    classes:"shadow round5-left",
+    sidebarTitle:"<span class='red'>Selection option (per item)</span>",
+    sidebarClass:"",
+    selectionMode:"multi",
+    extend_modules:function(){
+        return[
+            //manual_interactionW(treeview),
+            sidebarTitle_changer(treeview),
+            //scrollbars_module(treeview),
+            selectors_deselectors(treeview)
+        ];
+    },
+    onConfirm:function () {
+        console.log(filterArray(treeview.items, "selected", true));
+    },
+    onCancel:function () {
+        treeview.close();
+    },
+    onCreate:function () {
+        $(".treeview")
+            .draggable({distance:30, scroll:false, handle:".treeview", cancel:".appender, .itemGroups li, .buttons > *"})
+            .trigger("change");
+    },
+    onClose:function(){}
+};
+
 
 //TREEVIEW MAIN CONSTRUCTOR
 function TreeviewConstructor(arg){
