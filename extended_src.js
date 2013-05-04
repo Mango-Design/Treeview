@@ -7,7 +7,7 @@
  */
  
 //INIT ALL THE ENVIRONMENT VARS NEEDED TO CREATE A TREEVIEW
-var data = (function {
+var data = (function(){
     //************************
 
     var item = {
@@ -214,8 +214,9 @@ var data = (function {
         itemVect : [item,item1,item2,item3,item4,item5,item6,item7,item8,item9,item10],
         paramVect : [paramlist,paramlist1],
         filterVect : [filter,filter0,filter1,filter2,filter3]
-    }
-})
+    };
+    
+})();
 
 
 var treeview = {
