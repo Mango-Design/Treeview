@@ -1,41 +1,30 @@
-Treeview 2.0 Module - ISDesign.tv
+Treeview 2.0
 ========
 
-This module allow you to get a quick, minimal, user-friendly, beautyfull
-way to present "selections choices" to the end-user.
+I wrote this plugin to study the plugins creation process on Javascript. 
 
-It allows to handle multiple or single selection, with or without priority, with group filters and search, among hundreds
-of items, without any code adding!
+This module allow you to get a quick, user-friendly, beautiful window to present "selections choices" to the end-user, with a minimal effort.
+
+It handles multiple or single selections, with priority, group filters, search and much more!
 
 Simply:
 
 *******
-> Choose you preferred treeview configuration based on which interface element you wish to get. 
+> Choose the UI elements you wish to get. 
 
-> Describe the objects that will represent the items that the user could select, and pull it into the plugin
+> Describe the objects that the user would select
 
-> And you're Done!
+> Done!
 
 *******
 
-The Treeview will handle the presentation of the choice screen, and all the selection process.
+The Treeview will handle all the selection process.
 
+Every element is fully customizable in design, and the core code and functionality is full extendable.
+*****
 
-And if you wish to get more involved:
-
-Every element is fully customizable in design, and the core code and functionality is full extendable and override-able.
-
-More functionaly will come soon!
+See it live (Open the Console to view results):
+> http://jsfiddle.net/IvanSollima/uq8xj769/
 
 *****
-Complete Project SRC can be downloaded Here:
-
-> https://docs.google.com/folder/d/0B4z9HkZREGpeN3RjSW9FUUJZa0E/edit 
-
-Working example can be viewed Here (open console to see results):
-
-> http://jsfiddle.net/ISDesign/4xSf3/
-
-*****
-ISDesign.tv
 Ivan Sollima.
